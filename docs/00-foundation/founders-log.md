@@ -37,3 +37,21 @@ I want to understand users like a founder.
 Whether Radicant becomes a successful business or not, I want the process of building it to transform me into a better engineer.
 
 Today I planted the first root.
+
+## Week 01
+
+### What did we accomplish?
+
+### What surprised us?
+
+### What assumptions changed?
+
+### What did we intentionally say "No" to?
+
+### What excites me most?
+
+### Biggest risk right now
+
+### Biggest opportunity right now
+
+### Next week's objective
