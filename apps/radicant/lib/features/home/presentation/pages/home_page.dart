@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-
-import '../../../health/data/models/health_model.dart';
-import '../../../health/data/services/health_service.dart';
+import 'package:radicant/features/health/data/models/health_model.dart';
+import 'package:radicant/features/health/data/services/health_service.dart';
+import '../widgets/dashboard_header.dart';
+import '../widgets/runtime_card.dart';
+import '../widgets/backend_status_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,48 +24,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Radicant')),
+      appBar: AppBar(title: const Text('Radicant'), centerTitle: true),
       body: FutureBuilder<HealthModel>(
         future: _health,
         builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
+          final connected =
+              snapshot.connectionState == ConnectionState.done &&
+              snapshot.hasData;
 
-          if (snapshot.hasError) {
-            return Center(
-              child: Text('❌ ${snapshot.error}', textAlign: TextAlign.center),
-            );
-          }
-
-          final health = snapshot.data!;
-
-          return Padding(
+          return SingleChildScrollView(
             padding: const EdgeInsets.all(24),
-            child: Card(
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      '🟢 API Connected',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    const SizedBox(height: 24),
-
-                    Text('Status : ${health.status}'),
-                    Text('Service : ${health.service}'),
-                    Text('Version : ${health.version}'),
-                    Text('Timestamp : ${health.timestamp}'),
-                  ],
-                ),
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                DashboardHeader(connected: connected),
+                const SizedBox(height: 24),
+                const RuntimeCard(),
+                const SizedBox(height: 24),
+                BackendStatusCard(snapshot: snapshot),
+              ],
             ),
           );
         },
