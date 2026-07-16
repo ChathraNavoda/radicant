@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:radicant/features/health/data/models/health_model.dart';
-import 'package:radicant/features/health/data/services/health_service.dart';
+import 'package:radicant/core/di/injection.dart';
+import '../../../health/data/services/health_service.dart';
 import '../widgets/dashboard_header.dart';
 import '../widgets/runtime_card.dart';
 import '../widgets/backend_status_card.dart';
@@ -18,7 +19,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    _health = HealthService().getHealth();
+    _health = getIt<HealthService>().getHealth();
   }
 
   @override
