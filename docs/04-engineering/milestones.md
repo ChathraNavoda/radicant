@@ -58,10 +58,10 @@ Build the reusable engineering foundation required for future features.
 - ✅ APP-002 Application Routing
 - ✅ APP-003 API Connection
 - ✅ APP-004 Environment Configuration
+- ✅ APP-005 Dependency Injection
 
 ## Upcoming
 
-- ⬜ APP-005 Dependency Injection
 - ⬜ APP-006 State Management
 - ⬜ APP-007 Error Handling
 - ⬜ APP-008 Logging
