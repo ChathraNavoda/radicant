@@ -38,6 +38,14 @@ Whether Radicant becomes a successful business or not, I want the process of bui
 
 Today I planted the first root.
 
+## Milestone Complete — APP-004
+
+Today the application became environment-aware.
+
+Implemented compile-time environment configuration using `--dart-define`, replacing hardcoded API URLs with a centralized configuration system. Added a Developer Dashboard to visualize runtime information and backend health, making local development more transparent.
+
+This milestone lays the groundwork for future staging and production deployments without requiring application code changes.
+
 ## Week 01
 
 ### What did we accomplish?
