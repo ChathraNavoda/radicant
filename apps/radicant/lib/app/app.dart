@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:radicant/app/theme/app_theme.dart';
 import 'package:radicant/features/home/presentation/pages/home_page.dart';
 
 class RadicantApp extends StatelessWidget {
@@ -9,10 +10,9 @@ class RadicantApp extends StatelessWidget {
     return MaterialApp(
       title: 'Radicant',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        brightness: Brightness.dark, // Clean dev look by default
-      ),
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
+      themeMode: ThemeMode.system,
       home: const HomePage(),
     );
   }
